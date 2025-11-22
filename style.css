@@ -35,13 +35,22 @@ body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, '
 
 
 /* Hero */
-.hero{padding:80px 20px;text-align:center;background:linear-gradient(180deg, #eaf4ff, transparent)}
-.hero h1{font-size:2rem;margin:0 0 12px}
-.hero p{color:var(--muted);margin-bottom:16px}
-.btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
-.btn.primary{background:var(--accent);color:#fff}
-.btn.primary:hover{background:var(--accent-dark)}
-
+.hero{
+    background-image: url('images/Parthenon-Cropped.jpg'); /* path to your image */
+    background-size: cover;       /* makes image fill the hero section */
+    background-position: center;  /* centers the image */
+    background-repeat: no-repeat; /* prevents tiling */
+    height: 100vh;                /* full viewport height */
+    display: flex;                /* for centering content */
+    align-items: center;          /* vertical centering */
+    justify-content: center;      /* horizontal centering */
+    color: white;                 /* text color on top of image */
+    position: relative;           /* needed if you want overlays later */
+}
+.hero .hero-inner {
+  position: relative;
+  z-index: 1; /* keep text above overlay */
+}
 
 /* Features */
 .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:36px 20px;max-width:1100px;margin:0 auto}
