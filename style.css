@@ -1,293 +1,271 @@
 /* Light Greek-inspired palette */
-:root{
-    --bg: #f5f9ff;
-    --card: #ffffff;
-    --accent: #1e88e5;
-    --accent-dark: #1565c0;
-    --muted: #adb4c2;
-    --text: #0f1724;
-    --radius: 12px;
+:root {
+  --bg: #f5f9ff;
+  --card: #ffffff;
+  --accent: #1e88e5; /* light blue */
+  --accent-dark: #1565c0;
+  --muted: #adb4c2;
+  --text: #0f1724;
+  --radius: 12px;
 }
 
-/* Global Reset */
+/* Global Styles */
 * { box-sizing: border-box; }
 body {
-    margin: 0;
-    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    background: var(--bg);
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Header */
 .site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
-    background: linear-gradient(90deg, #ffffffcc, #f0f6ff);
-    position: sticky;
-    top: 0;
-    z-index: 40;
-    border-bottom: 1px solid #e6eefc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: linear-gradient(90deg, #ffffffcc, #f0f6ff);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid #e6eefc;
 }
 .logo { font-weight: 700; color: var(--accent); font-size: 1.15rem; }
 
-/* Nav */
-.site-nav { display: flex; gap: 14px; align-items: center; }
+/* Navigation */
+.site-nav {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
 .site-nav a {
-    color: var(--text);
-    text-decoration: none;
-    padding: 8px 10px;
-    border-radius: 8px;
-    font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 600;
 }
 .site-nav a.cta { background: var(--accent); color: white; }
 .site-nav a.cta:hover { background: var(--accent-dark); }
 
 /* Hamburger */
 .nav-toggle {
-    display: none;
-    background: none;
-    border: 0;
-    padding: 8px;
-    border-radius: 8px;
+  display: none;
+  background: none;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
 }
 .nav-toggle .hamburger {
-    display: inline-block;
-    width: 22px;
-    height: 2px;
-    background: var(--text);
-    position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
 }
 .nav-toggle .hamburger::before,
 .nav-toggle .hamburger::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 22px;
-    height: 2px;
-    background: var(--text);
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
 }
 .nav-toggle .hamburger::before { top: -7px; }
 .nav-toggle .hamburger::after { top: 7px; }
 
-/* Hero - Home Page */
+/* Hero for Home Page */
 .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-image: url('images/parthenon3.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    color: white;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('images/parthenon3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
 }
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.35);
-    z-index: 0;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
 }
 .hero .hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
 }
 .hero .hero-inner h1 { font-size: 3rem; margin-bottom: 1rem; }
 .hero .hero-inner p { font-size: 1.3rem; margin-bottom: 1.5rem; }
 
 /* About Page Hero */
 .about-page .about-hero {
-    position: relative;
-    width: 100%;
-    height: auto;
-    min-height: 40vh;
-    background-image: url('images/GreekFlag-Α.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    color: white;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 40vh;
+  background-image: url('images/GreekFlag-Α.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
 }
 .about-page .about-hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.35);
-    z-index: 0;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
 }
 .about-page .about-hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    padding: 1.5rem;
-    border-radius: 12px;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 1.5rem;
+  border-radius: 12px;
 }
 .about-page .about-hero-inner h1 { font-size: 2.6rem; margin-bottom: 0.8rem; }
 .about-page .about-hero-inner p { font-size: 1.2rem; }
 
 /* Registration Page Hero */
 .registration-page .registration-hero {
-    position: relative;
-    width: 100%;
-    height: 70vh; /* taller hero to reduce cropping */
-    min-height: 400px; /* ensures minimum size on small screens */
-    background-image: url('images/eisodima.jpg'); /* your image */
-    background-size: cover;          /* fills width, may crop slightly */
-    background-position: top center; /* keeps top of image visible */
-    background-repeat: no-repeat;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
+  position: relative;
+  width: 100%;
+  height: 60vh; /* increased height to reduce cropping */
+  background-image: url('images/kapodistrias.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
 }
-
 .registration-page .registration-hero::before {
-    content: '';
-    position: top center;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.35);
-    z-index: 0;
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
 }
 .registration-page .registration-hero-inner {
-    position: top center;
-    z-index: 1;
-    max-width: 700px;
-    padding: 1rem 2rem;
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
 }
 .registration-page .registration-hero-inner h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
 .registration-page .registration-hero-inner p { font-size: 1.2rem; }
 
 /* Registration Form Card */
 .registration-page .form-section {
-    max-width: 700px;
-    margin: -6rem auto 2rem auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.373);
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(16,24,40,0.1);
-    position: bottom center;
-    z-index: 1;
+  max-width: 700px;
+  margin: -5rem auto 2rem auto; /* pull form over hero */
+  padding: 2rem;
+  background: rgba(255,255,255,0.95);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.1);
+  position: relative;
+  z-index: 1;
+  color: #1e1e1e; /* form text color */
 }
+.registration-page .form-section h2 { color: #0f1724; }
+.registration-page .form-section label span { color: #1e1e1e; }
+.registration-page .form-section input,
+.registration-page .form-section select,
+.registration-page .form-section textarea { color: #1e1e1e; background: #fff; }
+.registration-page .form-section input::placeholder,
+.registration-page .form-section textarea::placeholder { color: #6b7280; }
+.registration-page .form-section .btn.primary { color: white; }
+.registration-page .form-section .btn.secondary { color: var(--accent); }
 
 /* Features */
 .features {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 18px;
-    padding: 36px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+  padding: 36px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 .features article {
-    background: var(--card);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(16,24,40,0.05);
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.05);
 }
 .features h3 { margin-top: 0; }
 
-/* Content & Sections */
+/* Content Sections */
 .content { padding: 28px 20px; }
 .section, .section-container {
-    max-width: 900px;
-    margin: 0 auto;
-    background: var(--card);
-    padding: 28px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(16,24,40,0.03);
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.03);
 }
-
-/* Forms */
-.container { max-width: 700px; margin: 0 auto; }
-.field { display: block; margin-bottom: 12px; }
-.field span { display: block; margin-bottom: 6px; font-weight: 600; }
-input[type=text], input[type=email], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #e6eefc;
-    background: #fff;
-}
-.form-actions { display: flex; gap: 12px; margin-top: 12px; }
-.btn.secondary { background: #fff; border: 1px solid #dbeafe; color: var(--accent); font-weight: 700; }
 
 /* Footer */
 .site-footer { padding: 20px; text-align: center; color: var(--muted); margin-top: 36px; }
 
 /* Responsive */
-@media (max-width:900px){
-    .features { grid-template-columns: repeat(2,1fr); }
-
-    .registration-page .registration-hero { height: 60vh; }
-    .registration-page .registration-hero-inner h1 { font-size: 2.2rem; }
-    .registration-page .registration-hero-inner p { font-size: 1rem; }
+@media (max-width:900px) { .features { grid-template-columns: repeat(2,1fr); } }
+@media (max-width:700px) {
+  .features { grid-template-columns: 1fr; }
+  .nav-toggle { display: inline-block; }
+  .site-nav {
+    position: fixed;
+    top: 64px;
+    right: 16px;
+    background: rgba(255,255,255,0.98);
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(16,24,40,0.12);
+    display: none;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+  .site-nav::-webkit-scrollbar { width: 6px; }
+  .site-nav::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.2); border-radius: 3px; }
+  .site-nav.show { display: flex; }
+  .registration-page .registration-hero { height: 40vh; }
+  .registration-page .registration-hero-inner h1 { font-size: 2rem; }
+  .registration-page .registration-hero-inner p { font-size: 1rem; }
+  .hero { height: 75vh; padding: 1.5rem; }
+  .hero .hero-inner h1 { font-size: 2.1rem; }
+  .hero .hero-inner p { font-size: 1rem; }
+  .about-hero { height: 45vh; padding: 1.5rem; }
+  .about-hero-inner h1 { font-size: 2rem; }
+  .about-hero-inner p { font-size: 1rem; }
 }
-
-@media (max-width:700px){
-    .features { grid-template-columns: 1fr; }
-    .nav-toggle { display: inline-block; }
-    .site-nav {
-        position: fixed;
-        top: 64px;
-        right: 16px;
-        background: rgba(255,255,255,0.98);
-        flex-direction: column;
-        gap: 8px;
-        padding: 12px;
-        border-radius: 10px;
-        box-shadow: 0 8px 30px rgba(16,24,40,0.12);
-        display: none;
-        max-height: calc(100vh - 80px);
-        overflow-y: auto;
-        scrollbar-width: thin;
-    }
-    .site-nav::-webkit-scrollbar { width: 6px; }
-    .site-nav::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.2); border-radius: 3px; }
-    .site-nav.show { display: flex; }
-
-    .hero { height: 75vh; padding: 1.5rem; }
-    .hero .hero-inner h1 { font-size: 2.1rem; }
-    .hero .hero-inner p { font-size: 1rem; }
-
-    .about-page .about-hero { height: 45vh; padding: 1.5rem; }
-    .about-page .about-hero-inner h1 { font-size: 2rem; }
-    .about-page .about-hero-inner p { font-size: 1rem; }
-
-    .registration-page .registration-hero { height: 40vh; }
-    .registration-page .registration-hero-inner h1 { font-size: 2rem; }
-    .registration-page .registration-hero-inner p { font-size: 1rem; }
-    .registration-page .form-section { margin: -3rem auto 2rem auto; }
-}
-
-@media (max-width:480px){
-    .about-page .about-hero { height: 30vh; }
-    .hero { height: 65vh; }
-    .hero .hero-inner h1 { font-size: 1.7rem; }
-
-    .registration-page .registration-hero { 
-        height: 50vh; 
-        background-position: center center;
-    }
-    .registration-page .registration-hero-inner h1 { font-size: 1.8rem; }
-    .registration-page .registration-hero-inner p { font-size: 0.95rem; }
-    .registration-page .form-section { margin: -4rem auto 1rem auto; padding: 1.5rem; }
+@media (max-width:480px) {
+  .about-hero { height: 30vh; }
+  .hero { height: 65vh; }
+  .hero .hero-inner h1 { font-size: 1.7rem; }
 }
