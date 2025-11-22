@@ -11,7 +11,7 @@ if (form) {
     let submittedEmails = JSON.parse(localStorage.getItem('submittedEmails') || '[]');
 
     if (submittedEmails.includes(email)) {
-      alert('This email has already been used for registration.');
+      alert('Αυτό το email έχει ήδη χρησιμοποιηθεί για εγγραφή.');
       return;
     }
 
@@ -22,7 +22,7 @@ if (form) {
     submittedEmails.push(email);
     localStorage.setItem('submittedEmails', JSON.stringify(submittedEmails));
 
-    alert('Thank you! You will be redirected to verify your email.');
+    alert('Ευχαριστούμε πολύ! Θα σας ανακατευθυνθείτε σε μια φόρμα για συμπλήρωση email.');
     setTimeout(() => form.submit(), 100);
   });
 }

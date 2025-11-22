@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,24 +21,24 @@
 </header>
 
 <div class="container">
-<h2>Join as Member or Volunteer</h2>
-<p>Please fill out your information. You will be redirected to a verification form to confirm your email.</p>
+<h2>Εγγραφείτε ως μέλος ή ως εθελοντής</h2>
+<p>Συμπληρώστε τα στοιχεία σας. Θα ανακατευθυνθείτε σε μια φόρμα επαλήθευσης για να επιβεβαιώσετε το email σας.</p>
 
 <form id="registrationForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdXhd1lc8rZfhG-Fd_AuCZvHy5WbQA2l-siiU005hwyi4_A0g/viewform?usp=dialog" method="GET" target="_blank">
-  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="text" name="name" placeholder="Ονοματεπώνυμο" required>
   <input type="email" name="email" placeholder="Email" required>
   <select name="role" required>
-    <option value="member">Become a Member</option>
-    <option value="volunteer">Volunteer</option>
+    <option value="member">Γίνε Μέλος</option>
+    <option value="volunteer">Εθελοντής</option>
   </select>
-  <textarea name="message" placeholder="Tell us why you want to join" rows="5"></textarea>
+  <textarea name="message" placeholder="Πείτε μας λίγα λόγια για τον λόγο που επιλέξατε εμάς" rows="5"></textarea>
 
   <!-- Hidden fields for Google Form -->
   <input type="hidden" name="entry.1631017038" id="entry-email">
   <input type="hidden" name="entry.573927596" id="entry-name">
   <input type="hidden" name="entry.334238773" id="entry-role">
-  <button type="submit">Submit Registration</button>
-  <button type="button" onclick="window.location.href='index.html'">Back to Home</button>
+  <button type="submit">Υποβολή Εγγραφής</button>
+  <button type="button" onclick="window.location.href='index.html'">Επιστροφή στην Αρχική σελίδα</button>
 </form>
 </div>
 
