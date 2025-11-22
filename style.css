@@ -160,7 +160,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
+  color: rgb(9, 8, 8);
 }
 .registration-page .registration-hero::before {
   content: '';
