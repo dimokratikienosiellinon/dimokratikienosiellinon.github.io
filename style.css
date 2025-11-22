@@ -142,14 +142,14 @@ body {
 .about-page .about-hero-inner p { font-size: 1.2rem; }
 
 /* Registration Page Hero */
-.registration-page {
+.registration-page .registration-hero {
     position: relative;
     width: 100%;
-    height: 70vh;
-    min-height: 400px;
-    background-image: url('images/kapodistrias.jpg');
-    background-size: cover;
-    background-position: center;
+    height: 70vh; /* taller hero to reduce cropping */
+    min-height: 400px; /* ensures minimum size on small screens */
+    background-image: url('images/eisodima.jpg'); /* your image */
+    background-size: cover;          /* fills width, may crop slightly */
+    background-position: top center; /* keeps top of image visible */
     background-repeat: no-repeat;
 
     display: flex;
@@ -158,6 +158,7 @@ body {
     text-align: center;
     color: white;
 }
+
 .registration-page .registration-hero::before {
     content: '';
     position: top center;
