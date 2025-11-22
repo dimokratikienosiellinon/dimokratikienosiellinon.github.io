@@ -1,6 +1,11 @@
 <!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Εγγραφή — Δημοκρατική Ένωση Ελλήνων</title>
+<link rel="stylesheet" href="style.css" />
 </head>
-    <link rel="stylesheet" href="style.css" />
 
 <body class="registration-page">
 
@@ -20,70 +25,62 @@
     </nav>
 </header>
 
+<main class="registration-page">
 
-
-<main class="content">
-<section class="registration-hero">
+  <!-- Hero background -->
+  <section class="registration-hero">
     <div class="registration-hero-inner">
         <h1>Εγγραφή Μέλους</h1>
         <p>Γίνετε μέρος της προσπάθειας για ένα καλύτερο αύριο.</p>
     </div>
-</section>
+  </section>
 
-    <section class="section-container">
-        <h2>Εγγραφείτε ως μέλος ή εθελοντής</h2>
-            <p>Συμπληρώστε τα στοιχεία σας. Θα πραγματοποιηθεί ανακατεύθυνση στη φόρμα επαλήθευσης email.</p>
-
+  <!-- Form card -->
+  <section class="form-section container">
+    <h2>Εγγραφείτε ως μέλος ή εθελοντής</h2>
+    <p>Συμπληρώστε τα στοιχεία σας. Θα πραγματοποιηθεί ανακατεύθυνση στη φόρμα επαλήθευσης email.</p>
 
     <form id="registrationForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdXhd1lc8rZfhG-Fd_AuCZvHy5WbQA2l-siiU005hwyi4_A0g/viewform?usp=pp_url" method="GET" target="_blank">
-    <label class="field">
-        <span>Ονοματεπώνυμο</span>
-        <input type="text" name="name" placeholder="Ονοματεπώνυμο" required>
-    </label>
+      <label class="field">
+          <span>Ονοματεπώνυμο</span>
+          <input type="text" name="name" placeholder="Ονοματεπώνυμο" required>
+      </label>
 
+      <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" placeholder="email@paradeigma.gr" required>
+      </label>
 
-    <label class="field">
-        <span>Email</span>
-        <input type="email" name="email" placeholder="email@paradeigma.gr" required>
-    </label>
+      <label class="field">
+          <span>Επιλογή</span>
+          <select name="role" required>
+              <option value="member">Γίνε Μέλος</option>
+              <option value="volunteer">Εθελοντής</option>
+          </select>
+      </label>
 
+      <label class="field">
+          <span>Μήνυμα (προαιρετικό)</span>
+          <textarea name="message" rows="4" placeholder="Πείτε μας γιατί θέλετε να συμμετέχετε"></textarea>
+      </label>
 
-    <label class="field">
-        <span>Επιλογή</span>
-        <select name="role" required>
-            <option value="member">Γίνε Μέλος</option>
-            <option value="volunteer">Εθελοντής</option>
-        </select>
-    </label>
+      <!-- Hidden fields for Google Form prefill -->
+      <input type="hidden" name="entry.1631017038" id="entry-email">
+      <input type="hidden" name="entry.573927596" id="entry-name">
+      <input type="hidden" name="entry.334238773" id="entry-role">
 
-
-    <label class="field">
-        <span>Μήνυμα (προαιρετικό)</span>
-        <textarea name="message" rows="4" placeholder="Πείτε μας γιατί θέλετε να συμμετέχετε"></textarea>
-    </label>
-
-
-    <!-- Hidden fields for Google Form prefill (keep these IDs) -->
-    <input type="hidden" name="entry.1631017038" id="entry-email">
-    <input type="hidden" name="entry.573927596" id="entry-name">
-    <input type="hidden" name="entry.334238773" id="entry-role">
-
-
-    <div class="form-actions">
-        <button class="btn primary" type="submit">Υποβολή</button>
-        <button class="btn secondary" type="button" onclick="window.location.href='index.html'">Επιστροφή</button>
-    </div>
+      <div class="form-actions">
+          <button class="btn primary" type="submit">Υποβολή</button>
+          <button class="btn secondary" type="button" onclick="window.location.href='index.html'">Επιστροφή</button>
+      </div>
     </form>
-    </section>
-
+  </section>
 
 </main>
 
-
 <footer class="site-footer">
-<div>© 2025 Δημοκρατική Ένωση Ελλήνων</div>
+  <div>© 2025 Δημοκρατική Ένωση Ελλήνων</div>
 </footer>
-
 
 <script src="script.js"></script>
 </body>
