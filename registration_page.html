@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<style>
+ body {font-family: Arial; background:#eef2f6; padding:40px;}
+ .container {max-width:500px; margin:auto; background:white; padding:30px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1);} 
+ input, select {width:100%; padding:10px; margin:10px 0;} 
+ button {width:100%; padding:12px; background:#28a745; color:white; border:none; border-radius:5px;} 
+ button:hover {background:#1e7e34;} 
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Join as Member or Volunteer</h2>
+<p>Please fill out your information. You will be redirected to a verification form to confirm your email.</p>
+<form id="registrationForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdXhd1lc8rZfhG-Fd_AuCZvHy5WbQA2l-siiU005hwyi4_A0g/viewform?usp=dialog" method="GET" target="_blank">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <select name="role" required>
+    <option value="member">Become a Member</option>
+    <option value="volunteer">Volunteer</option>
+  </select>
+  <textarea name="message" placeholder="Tell us why you want to join" rows="5" style="width:100%;"></textarea>
+  <!-- Hidden fields to pre-fill Google Form -->
+ <input type="hidden" name="entry.1631017038" id="entry-email">
+  <input type="hidden" name="entry.573927596" id="entry-name">
+  <input type="hidden" name="entry.334238773" id="entry-role">
+  <button type="submit">Submit Registration</button>
+  <button type="button" onclick="window.location.href='index.html'">Back to Home</button>
+
+</form>
+</div>
+
+<script>
+const form = document.getElementById('registrationForm');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.querySelector('input[name="name"]').value.trim();
+  const email = document.querySelector('input[name="email"]').value.trim().toLowerCase();
+
+  // Retrieve submitted emails from localStorage
+  let submittedEmails = JSON.parse(localStorage.getItem('submittedEmails') || '[]');
+
+  // Check for duplicates
+  if (submittedEmails.includes(email)) {
+    alert('This email has already been used for registration.');
+    return;
+  }
+
+  // Pre-fill Google Form hidden inputs
+  document.getElementById('entry-name').value = name;
+  document.getElementById('entry-email').value = email;
+
+  // Add email to localStorage
+  submittedEmails.push(email);
+  localStorage.setItem('submittedEmails', JSON.stringify(submittedEmails));
+
+  alert('Thank you! You will be redirected to verify your email.');
+
+  // Submit the form after a short delay to ensure localStorage updates
+  setTimeout(() => form.submit(), 100);
+});
+</script>
+
+</body>
+</html>
