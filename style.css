@@ -83,7 +83,8 @@ body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, '
 .about-page .about-hero {
     position: relative;
     width: 100%;
-    height: 60vh; /* adjust height */
+    height: auto; /* adjust height */
+    min-height: 40vh;
     background-image: url('images/GreekFlag-Α.jpg'); /* your image */
     background-size: cover;
     background-position: center;
@@ -112,6 +113,9 @@ body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, '
     position: relative;
     z-index: 1;
     max-width: 800px;
+    background: rgba(255,255,255,0.85); /* keeps text readable */
+    padding: 1.5rem;
+    border-radius: 12px;
 }
 
 .about-page .about-hero-inner h1 {
@@ -127,8 +131,9 @@ body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, '
 .registration-page .registration-hero {
     position: relative;
     width: 100%;
-    height: 50vh; /* shorter hero height for internal pages */
-    background-image: url('images/kapodistrias.jpg'); /* your image */
+    height: auto;
+    min-height: 50vh;
+    background-image: url('images/kapodistrias.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -136,10 +141,9 @@ body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, '
     display: flex;
     justify-content: center;
     align-items: center;
-
+    text-align: center;
     padding: 2rem;
     color: white;
-    text-align: center;
 }
 
 .registration-page .registration-hero::before {
@@ -153,10 +157,13 @@ body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, '
     z-index: 0;
 }
 
-.registration-page .registration-page .registration-hero .hero-inner {
+.registration-page .registration-hero .hero-inner {
     position: relative;
     z-index: 1;
     max-width: 700px;
+    background: rgba(255,255,255,0.85);
+    padding: 1.5rem;
+    border-radius: 12px;
 }
 
 .registration-page .registration-hero h1 {
