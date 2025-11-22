@@ -32,5 +32,9 @@ if(nav.classList.contains('show')){
 nav.classList.remove('show');
 btn.setAttribute('aria-expanded','false');
 }
+// Fill Google Form hidden fields
+    document.getElementById('entry-name').value = name;
+    document.getElementById('entry-email').value = email;
+    document.getElementById('entry-role').value = role;
 }));
 })();
