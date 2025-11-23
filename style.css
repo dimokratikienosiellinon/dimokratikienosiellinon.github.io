@@ -110,6 +110,20 @@ body {
 .hero .hero-inner h1 { font-size: 3rem; margin-bottom: 1rem; }
 .hero .hero-inner p { font-size: 1.3rem; margin-bottom: 1.5rem; }
 
+/* Registration page main text section */
+.registration-page .section-container {
+    max-width: 700px;          /* keeps text readable */
+    margin: 2rem auto;         /* centers section with spacing */
+    padding: 2rem;             /* inner spacing */
+    background: rgba(255,255,255,0.95); /* semi-transparent background so text is readable over image */
+    border-radius: 12px;       /* rounded corners */
+    box-shadow: 0 6px 20px rgba(16,24,40,0.1); /* subtle shadow */
+    text-align: left;          /* optional, aligns text nicely */
+    color: var(--text);        /* ensures text color is visible */
+    position: relative;
+    z-index: 1;
+}
+
 /* Features Section */
 .features {
   display: grid;
