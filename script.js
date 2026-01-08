@@ -26,11 +26,13 @@
     }));
   }
 
-  // Close nav on link click
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    nav.classList.remove('show');
-    btn.setAttribute('aria-expanded','false');
-  }));
+  // Close nav on link click (guarded)
+  if (nav && btn) {
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('show');
+      btn.setAttribute('aria-expanded','false');
+    }));
+  }
 
   // Form listener
   const form = document.getElementById('registrationForm');
@@ -59,7 +61,7 @@
       const now = Date.now();
 
       // Έλεγχος αν είναι κλειδωμένο για 5 λεπτά
-      const lockedUntil = localStorage.getItem(lockKey);
+      const lockedUntil = Number(localStorage.getItem(lockKey));
       if (lockedUntil && now < lockedUntil) {
         alert('Το email υπάρχει ήδη. Παρακαλώ προσπαθήστε ξανά μετά από 5 λεπτά.');
         return;
