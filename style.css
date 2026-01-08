@@ -31,7 +31,17 @@ body {
   z-index: 40;
   border-bottom: 1px solid #e6eefc;
 }
-.logo { font-weight: 700; color: var(--accent); font-size: 1.15rem; }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* απόσταση εικόνας - κειμένου */
+  font-weight: bold;
+}
+
+.logo-img {
+  height: 40px; /* άλλαξέ το όπως θες */
+  width: auto;
+}
 
 /* Navigation */
 .site-nav {
@@ -56,6 +66,7 @@ body {
   border: 0;
   padding: 8px;
   border-radius: 8px;
+  cursor: default;
 }
 .nav-toggle .hamburger {
   display: inline-block;
@@ -63,18 +74,54 @@ body {
   height: 2px;
   background: var(--text);
   position: relative;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+  transform-origin: center;
 }
-.nav-toggle .hamburger::before,
-.nav-toggle .hamburger::after {
+.nav-toggle .hamburger::before, .nav-toggle .hamburger::after {
   content: '';
   position: absolute;
   left: 0;
   width: 22px;
   height: 2px;
   background: var(--text);
+  transition: transform 0.18s ease, top 0.18s ease, opacity 0.12s ease;
+  transform-origin: center;
 }
 .nav-toggle .hamburger::before { top: -7px; }
 .nav-toggle .hamburger::after { top: 7px; }
+
+/* When the nav button is active (aria-expanded=true) animate to an X */
+.nav-toggle[aria-expanded="true"] .hamburger {
+  background-color: transparent; /* hide middle bar */
+}
+.nav-toggle[aria-expanded="true"] .hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .hamburger::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* small active press feedback */
+.nav-toggle:active .hamburger { transform: scale(0.96); }
+
+
+/* Hover: change cursor to pointer and animate hamburger color (works when open or closed) */
+.nav-toggle:hover { cursor: pointer; }
+.nav-toggle:hover .hamburger,
+.nav-toggle:hover .hamburger::before,
+.nav-toggle:hover .hamburger::after {
+  background: var(--accent-dark);
+}
+
+/* When open, keep middle bar hidden even on hover and keep X lines colored */
+.nav-toggle[aria-expanded="true"] .hamburger { background-color: transparent; }
+.nav-toggle[aria-expanded="true"]:hover .hamburger { background-color: transparent; }
+.nav-toggle[aria-expanded="true"] .hamburger::before,
+.nav-toggle[aria-expanded="true"] .hamburger::after {
+  background: var(--accent-dark);
+}
 
 /* Hero - Main Index Page */
 .hero {
@@ -141,6 +188,18 @@ body {
 }
 .features h3 { margin-top: 0; }
 
+/* Reusable link utility used across the site (features, content links, etc.) */
+.link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.15s ease, text-decoration 0.15s ease;
+}
+.link:hover, .link:focus {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
 /* Content Sections */
 .content { padding: 28px 20px; }
 .section {
@@ -164,27 +223,53 @@ input[type=text], input[type=email], select, textarea {
   background: #fff;
 }
 .form-actions { display: flex; gap: 12px; margin-top: 12px; }
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.08s ease;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: white;
+}
+.btn.primary:hover,
+.btn.primary:focus {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
 .btn.secondary {
   background: #fff;
   border: 1px solid #dbeafe;
   color: var(--accent);
-  font-weight: 700;
 }
 
 /* Footer */
 .site-footer {
-  background: white;
+  background: #1e88e5;
   color: #000000;
-  padding: 30px 20px;
+  padding: 40px 30px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;   /* ⬅️ όχι κέντρο */
-  gap: 15px;
+  flex-direction: row; /* keep columns side-by-side */
+  justify-content: center; /* center columns horizontally */
+  align-items: flex-end; /* align columns to the bottom of the footer */
+  gap: 30px;
+  position: relative;
+  width: 100%;
 }
 
 .footer-contact {
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* keep text left-aligned within the column */
+  text-align: left;
   gap: 6px;
 }
 
@@ -198,11 +283,22 @@ input[type=text], input[type=email], select, textarea {
   opacity: 0.85;
 }
 
-.footer-copy {
-  margin-top: 15px;
-  font-size: 13px;
-  opacity: 0.7;
+/* Footer-specific link style: visible on the blue footer background */
+.footer_link, .site-footer a.footer_link {
+  color: #0f1724; /* white for high contrast on the blue background */
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.12s ease, text-decoration 0.12s ease;
 }
+.footer_link:hover, .footer_link:focus, .site-footer a.footer_link:hover, .site-footer a.footer_link:focus {
+  color: rgba(255,255,255,0.92);
+  text-decoration: underline;
+}
+.footer_link:focus {
+  outline: 3px solid #000000;
+  outline-offset: 3px;
+}
+
 
 /* Responsive */
 @media (max-width:900px) { .features { grid-template-columns: repeat(2,1fr); } }
@@ -235,4 +331,11 @@ input[type=text], input[type=email], select, textarea {
 @media (max-width:480px) {
   .hero { height: 65vh; }
   .hero .hero-inner h1 { font-size: 1.7rem; }
+}
+
+/* Small screens: stack footer columns but keep column text left-aligned */
+@media (max-width:700px) {
+  .site-footer { flex-direction: column; align-items: center; gap: 12px; }
+  .footer-contact { align-items: flex-start; }
+  .footer-copy { text-align: center; }
 }
