@@ -251,6 +251,20 @@ input[type=text], input[type=email], select, textarea {
   color: var(--accent);
 }
 
+/* Accessible focus ring for keyboard users */
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(21,101,192,0.22);
+  outline: none;
+  border-radius: 8px;
+}
+
+/* Make the hamburger keyboard-focus visible */
+.nav-toggle:focus-visible {
+  outline: 3px solid rgba(21,101,192,0.22);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
 /* Footer */
 .site-footer {
   background: #1e88e5;
@@ -315,14 +329,24 @@ input[type=text], input[type=email], select, textarea {
     padding: 12px;
     border-radius: 10px;
     box-shadow: 0 8px 30px rgba(16,24,40,0.12);
-    display: none;
-    max-height: calc(100vh - 80px);
-    overflow-y: auto;
+    /* Use max-height for smooth open/close transitions instead of display:none */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: max-height 280ms ease, opacity 180ms ease, transform 220ms ease;
     scrollbar-width: thin;
   }
   .site-nav::-webkit-scrollbar { width: 6px; }
   .site-nav::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.2); border-radius: 3px; }
-  .site-nav.show { display: flex; }
+  /* When `.show` is toggled, expand via max-height and fade in */
+  .site-nav.show {
+    max-height: calc(100vh - 80px);
+    opacity: 1;
+    transform: translateY(0);
+    overflow-y: auto; /* enable vertical scroll when content is taller than available space */
+    -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  }
 
   .hero { height: 75vh; padding: 1.5rem; }
   .hero .hero-inner h1 { font-size: 2.1rem; }
