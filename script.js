@@ -2,24 +2,29 @@
   const formLoadTime = Date.now();
   const btn = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.site-nav');
-  if(!btn || !nav) return;
 
-  // Toggle nav
-  btn.addEventListener('click', function(){
-    const expanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', String(!expanded));
-    nav.classList.toggle('show');
-  });
+  if(btn && nav){
+    // Toggle nav
+    btn.addEventListener('click', function(){
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('show');
+    });
 
-  // Close nav when clicking outside
-  document.addEventListener('click', function(e){
-    if(!nav.classList.contains('show')) return;
-    const isClickInside = nav.contains(e.target) || btn.contains(e.target);
-    if(!isClickInside){
+    document.addEventListener('click', function(e){
+      if(!nav.classList.contains('show')) return;
+      const isClickInside = nav.contains(e.target) || btn.contains(e.target);
+      if(!isClickInside){
+        nav.classList.remove('show');
+        btn.setAttribute('aria-expanded','false');
+      }
+    });
+
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       nav.classList.remove('show');
       btn.setAttribute('aria-expanded','false');
-    }
-  });
+    }));
+  }
 
   // Close nav on link click
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
